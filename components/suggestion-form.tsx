@@ -180,7 +180,7 @@ export function SuggestionForm() {
           {/* Back Link */}
           <div className="text-center pt-4 border-t border-gray-200">
             <a href="/" className="text-sm font-medium text-gray-900 hover:text-gray-700 underline">
-              ← Back to Newsletter
+              ← Back to Mailing List
             </a>
           </div>
         </form>

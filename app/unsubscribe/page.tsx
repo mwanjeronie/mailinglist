@@ -54,7 +54,7 @@ export default function UnsubscribePage() {
             <div className="space-y-4">
               <Loader2 className="w-8 h-8 animate-spin mx-auto text-gray-900" />
               <h1 className="text-2xl font-bold text-gray-950">Processing...</h1>
-              <p className="text-gray-600">Unsubscribing you from our newsletter</p>
+              <p className="text-gray-600">Unsubscribing you from our mailing list</p>
             </div>
           )}
 

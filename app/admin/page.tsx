@@ -104,7 +104,7 @@ export default function AdminPage() {
 
             <div className="mt-6 text-center">
               <a href="/" className="text-sm font-medium text-gray-900 hover:text-gray-700 underline">
-                ← Back to Newsletter
+                ← Back to Mailing List
               </a>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function AdminPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-950">
-              Newsletter Admin
+              Mailing List Admin
             </h1>
             <p className="text-gray-600 mt-2">Manage subscribers and view analytics</p>
           </div>

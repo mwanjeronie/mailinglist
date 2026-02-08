@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get your events newsletter up and running in 5 minutes.
+Get your events mailing list up and running in 5 minutes.
 
 ## Step 1: Set Admin Password (2 minutes)
 
@@ -9,7 +9,7 @@ Get your events newsletter up and running in 5 minutes.
 3. Click **Add New**
 4. Enter:
    - **Name**: `ADMIN_PASSWORD`
-   - **Value**: Choose a strong password (e.g., `MyNewsletterAdmin2024!`)
+   - **Value**: Choose a strong password (e.g., `MyMailing ListAdmin2024!`)
 5. Click **Save**
 
 That's it! Your app is ready.
@@ -34,7 +34,7 @@ npm run dev
 1. Go to `http://your-domain.vercel.app/`
 2. Enter your email
 3. Select event types and topics
-4. Click "Subscribe to Newsletter"
+4. Click "Subscribe to Mailing List"
 5. You should see a success message
 
 ### Test Admin Dashboard
@@ -62,13 +62,13 @@ To get a subscriber's token:
 
 **To send via email service:**
 - Create email template with link: `{unsubscribeUrl}?token={token}`
-- Include this in your newsletter emails
+- Include this in your mailing list emails
 
 ## Step 5: Customize Event Types & Topics (Optional)
 
 Want to change what events/topics you offer?
 
-1. Open `lib/newsletter-config.ts`
+1. Open `lib/mailing list-config.ts`
 2. Edit the arrays:
    ```typescript
    export const EVENT_TYPES = [
@@ -111,7 +111,7 @@ Changes will appear everywhere:
 ### Unsubscribe Someone
 
 1. In Supabase dashboard
-2. Find their row in `newsletter_subscribers`
+2. Find their row in `mailing list_subscribers`
 3. Set `is_active` to `false`
 4. They won't receive emails anymore
 
@@ -159,7 +159,7 @@ Need to integrate with your own system?
 
 ### Add Subscriber Programmatically
 ```bash
-curl -X POST https://your-domain.vercel.app/api/newsletter \
+curl -X POST https://your-domain.vercel.app/api/mailing list \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
@@ -206,18 +206,18 @@ curl -X POST https://your-domain.vercel.app/api/unsubscribe \
   /suggest         - Suggestion form page
   /unsubscribe     - Unsubscribe page
   /api
-    /newsletter    - Signup endpoint
+    /mailing list    - Signup endpoint
     /suggestions   - Suggestion endpoint
     /unsubscribe   - Unsubscribe endpoint
     /admin         - Admin data endpoint
 
 /components
-  newsletter-form.tsx      - Signup form
+  mailing list-form.tsx      - Signup form
   suggestion-form.tsx      - Suggestion form
   admin-dashboard.tsx      - Admin interface
 
 /lib
-  newsletter-config.ts     - Event types & topics
+  mailing list-config.ts     - Event types & topics
 
 SETUP.md           - Full setup guide
 FEATURES.md        - Feature documentation
@@ -229,4 +229,4 @@ QUICKSTART.md      - This file!
 
 **You're all set!** 🚀
 
-Your newsletter is ready to accept subscribers. Share the homepage URL and start collecting interested users.
+Your mailing list is ready to accept subscribers. Share the homepage URL and start collecting interested users.

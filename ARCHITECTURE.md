@@ -9,7 +9,7 @@
 │                                                                 │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
 │  │   Homepage   │  │  Suggestion  │  │   Unsubscribe Page  │  │
-│  │  Newsletter  │  │     Form     │  │   (Token Verify)    │  │
+│  │  Mailing List  │  │     Form     │  │   (Token Verify)    │  │
 │  │   Signup     │  │ (New Types/  │  │                     │  │
 │  │   (/ route) │  │  Topics)     │  │ (/unsubscribe)      │  │
 │  │              │  │ (/suggest)   │  │                     │  │
@@ -24,7 +24,7 @@
 │                                                                 │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐  │
 │  │  /api/       │  │  /api/       │  │  /api/               │  │
-│  │  newsletter  │  │  suggestions │  │  unsubscribe         │  │
+│  │  mailing list  │  │  suggestions │  │  unsubscribe         │  │
 │  │              │  │              │  │                      │  │
 │  │ POST handler │  │ POST handler │  │ POST handler         │  │
 │  │              │  │              │  │                      │  │
@@ -51,7 +51,7 @@
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  ┌────────────────────────────────────────────────────────┐   │
-│  │         newsletter_subscribers                         │   │
+│  │         mailing list_subscribers                         │   │
 │  ├────────────────────────────────────────────────────────┤   │
 │  │ id (PK)                                               │   │
 │  │ email (UNIQUE, INDEXED)                              │   │
@@ -94,7 +94,7 @@ app/
 │   └── page.tsx                      ← Admin dashboard route
 │
 └── api/
-    ├── newsletter/route.ts           ← Signup endpoint
+    ├── mailing list/route.ts           ← Signup endpoint
     ├── suggestions/route.ts          ← Suggestion endpoint
     ├── unsubscribe/route.ts          ← Unsubscribe endpoint
     │
@@ -102,12 +102,12 @@ app/
         └── subscribers/route.ts      ← Admin data endpoint
 
 components/
-├── newsletter-form.tsx               ← Reusable signup form
+├── mailing list-form.tsx               ← Reusable signup form
 ├── suggestion-form.tsx               ← Reusable suggestion form
 └── admin-dashboard.tsx               ← Admin table & controls
 
 lib/
-└── newsletter-config.ts              ← Configuration (types/topics)
+└── mailing list-config.ts              ← Configuration (types/topics)
 ```
 
 ## Data Flow
@@ -116,11 +116,11 @@ lib/
 ```
 User Input (Homepage)
         ↓
-Newsletter Form Component
+Mailing List Form Component
         ↓
     Validate (email, selections)
         ↓
-    POST /api/newsletter
+    POST /api/mailing list
         ↓
     Server: Validate inputs
         ↓

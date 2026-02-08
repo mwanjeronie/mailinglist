@@ -1,12 +1,12 @@
-# Events Newsletter - Feature Complete Implementation
+# Events Mailing List - Feature Complete Implementation
 
 ## What's Been Built
 
-A production-ready events newsletter platform with sophisticated design, admin capabilities, and proper unsubscribe logic.
+A production-ready events mailing list platform with sophisticated design, admin capabilities, and proper unsubscribe logic.
 
 ## User-Facing Features
 
-### 1. Newsletter Signup Homepage (`/`)
+### 1. Mailing List Signup Homepage (`/`)
 **Design**: Clean, minimalist interface with premium aesthetic
 - Email input with validation
 - 6 selectable event types (Conferences, Workshops, Webinars, Networking Events, Summits, Meetups)
@@ -88,7 +88,7 @@ A production-ready events newsletter platform with sophisticated design, admin c
 
 ## Database Schema
 
-### newsletter_subscribers
+### mailing list_subscribers
 ```
 - id (Primary Key)
 - email (Unique, Indexed)
@@ -120,8 +120,8 @@ A production-ready events newsletter platform with sophisticated design, admin c
 
 ## API Endpoints
 
-### POST /api/newsletter
-Handles newsletter subscriptions
+### POST /api/mailing list
+Handles mailing list subscriptions
 - **Input**: `{ email, event_types: [], topics: [] }`
 - **Output**: `{ message, data }` or error
 - **Validation**: Email format, selections required
@@ -150,7 +150,7 @@ Fetches all subscribers (requires admin auth)
 ## Configuration
 
 ### Easy Updates via Config File
-File: `lib/newsletter-config.ts`
+File: `lib/mailing list-config.ts`
 
 ```typescript
 export const EVENT_TYPES = [
@@ -163,7 +163,7 @@ export const TOPICS = [
 ```
 
 Changes automatically reflect in:
-- Newsletter form
+- Mailing List form
 - Suggestion form
 - Admin dashboard filters
 - CSV exports
@@ -251,9 +251,9 @@ User-facing error messages are clear and actionable.
 
 1. **Email Confirmation**: Verify email before full subscription
 2. **Preference Management**: Allow subscribers to manage preferences
-3. **Newsletter Analytics**: Track open/click rates
+3. **Mailing List Analytics**: Track open/click rates
 4. **Bulk Upload**: Import subscribers from CSV
 5. **Email Templates**: Pre-designed email templates
-6. **Scheduler**: Schedule newsletter sends
+6. **Scheduler**: Schedule mailing list sends
 7. **Segment Campaigns**: Send to specific event type/topic groups
 8. **A/B Testing**: Test subject lines and content

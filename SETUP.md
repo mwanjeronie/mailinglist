@@ -1,8 +1,8 @@
-# Events Newsletter Setup Guide
+# Events Mailing List Setup Guide
 
 ## Overview
 
-This is a complete events newsletter application with:
+This is a complete events mailing list application with:
 - Email signup form with event type and topic filtering
 - Suggestion form for new event types and topics
 - Admin dashboard with CSV export capabilities
@@ -23,14 +23,14 @@ The password needed to access the admin dashboard at `/admin`. Choose a strong, 
 ## Database Setup
 
 The database schema is automatically created by running the migration scripts:
-- `scripts/setup-newsletter.sql` - Creates initial tables
+- `scripts/setup-mailing list.sql` - Creates initial tables
 - `scripts/add-features.sql` - Adds additional tables for suggestions and unsubscribe tokens
 
 These scripts have already been executed.
 
 ## Database Tables
 
-### newsletter_subscribers
+### mailing list_subscribers
 - `id` - Unique identifier
 - `email` - Subscriber email (unique)
 - `event_types` - Array of selected event types
@@ -91,7 +91,7 @@ These scripts have already been executed.
 
 ### For Subscribers
 
-1. **Subscribe to Newsletter**
+1. **Subscribe to Mailing List**
    - Visit homepage
    - Enter email
    - Select event types and topics
@@ -141,8 +141,8 @@ Example:
 
 ## API Routes
 
-### POST /api/newsletter
-Subscribe to newsletter
+### POST /api/mailing list
+Subscribe to mailing list
 - Body: `{ email, event_types: [], topics: [] }`
 - Returns: `{ message, data }`
 
@@ -178,7 +178,7 @@ Currently available:
 - Summits
 - Meetups
 
-Add more in `components/newsletter-form.tsx` → `EVENT_TYPES` array
+Add more in `components/mailing list-form.tsx` → `EVENT_TYPES` array
 
 ## Topics
 
@@ -192,7 +192,7 @@ Currently available:
 - AI & ML
 - Web Development
 
-Add more in `components/newsletter-form.tsx` → `TOPICS` array
+Add more in `components/mailing list-form.tsx` → `TOPICS` array
 
 ## Troubleshooting
 
@@ -215,7 +215,7 @@ Add more in `components/newsletter-form.tsx` → `TOPICS` array
 
 - [ ] Set `ADMIN_PASSWORD` environment variable
 - [ ] Verify Supabase connection
-- [ ] Test newsletter signup flow
+- [ ] Test mailing list signup flow
 - [ ] Test admin dashboard access
 - [ ] Test unsubscribe flow
 - [ ] Test CSV export

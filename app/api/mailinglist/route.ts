@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
 
     // Insert into database
     const { data, error } = await supabase
-      .from('newsletter_subscribers')
+      .from('mailinglist_subscribers')
       .insert([
         {
           email,
@@ -64,13 +64,13 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { message: 'Successfully subscribed to newsletter!', data },
+      { message: 'Successfully subscribed to mailing list!', data },
       { status: 201 }
     );
   } catch (error) {
-    console.error('Newsletter subscription error:', error);
+    console.error('Mailing list subscription error:', error);
     return NextResponse.json(
-      { error: 'Failed to subscribe to newsletter' },
+      { error: 'Failed to subscribe to mailing list' },
       { status: 500 }
     );
   }

@@ -12,14 +12,14 @@
 ### 2. Supabase Setup
 - [ ] Confirm Supabase integration is connected
 - [ ] Verify database tables exist:
-  - `newsletter_subscribers`
+  - `mailing list_subscribers`
   - `event_type_suggestions`
   - `topic_suggestions`
 - [ ] Confirm indexes exist on `email` and `unsubscribe_token`
 
 ### 3. Configuration Review
-- [ ] Review event types in `lib/newsletter-config.ts`
-- [ ] Review topics in `lib/newsletter-config.ts`
+- [ ] Review event types in `lib/mailing list-config.ts`
+- [ ] Review topics in `lib/mailing list-config.ts`
 - [ ] Ensure they match your business needs
 
 ## Testing Checklist

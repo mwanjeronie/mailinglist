@@ -4,9 +4,9 @@ import React from "react"
 
 import { useState } from 'react';
 import { Check, AlertCircle, Loader2 } from 'lucide-react';
-import { EVENT_TYPES, TOPICS } from '@/lib/newsletter-config';
+import { EVENT_TYPES, TOPICS } from '@/lib/mailinglist-config';
 
-export function NewsletterForm() {
+export function MailingListForm() {
   const [email, setEmail] = useState('');
   const [selectedEventTypes, setSelectedEventTypes] = useState<string[]>([]);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
@@ -49,7 +49,7 @@ export function NewsletterForm() {
     setStatus('loading');
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const response = await fetch('/api/mailinglist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -183,7 +183,7 @@ export function NewsletterForm() {
                 Subscribing...
               </>
             ) : (
-              'Subscribe to Newsletter'
+              'Subscribe to Mailing List'
             )}
           </button>
 

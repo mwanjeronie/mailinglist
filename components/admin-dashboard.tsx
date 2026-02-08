@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Download, Loader2, AlertCircle } from 'lucide-react';
-import { EVENT_TYPES, TOPICS } from '@/lib/newsletter-config';
+import { EVENT_TYPES, TOPICS } from '@/lib/mailinglist-config';
 
 interface Subscriber {
   id: number;

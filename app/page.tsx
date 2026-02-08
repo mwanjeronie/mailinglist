@@ -1,8 +1,8 @@
-import { NewsletterForm } from '@/components/newsletter-form';
+import { MailingListForm } from '@/components/mailinglist-form';
 
 export const metadata = {
-  title: 'Events Newsletter',
-  description: 'Subscribe to our newsletter and stay updated on events that interest you',
+  title: 'Events Mailing List',
+  description: 'Subscribe to our mailing list and stay updated on events that interest you',
 };
 
 export default function Page() {
@@ -11,9 +11,6 @@ export default function Page() {
       <div className="w-full max-w-2xl">
         {/* Header */}
         <div className="mb-12 text-center">
-          <div className="inline-block px-3 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full mb-4">
-            Stay Updated
-          </div>
           <h1 className="text-5xl sm:text-6xl font-bold text-gray-950 mb-4 text-balance leading-tight">
             Never Miss an Event
           </h1>
@@ -23,7 +20,7 @@ export default function Page() {
         </div>
 
         {/* Form */}
-        <NewsletterForm />
+        <MailingListForm />
 
         {/* Footer */}
         <div className="mt-8 text-center">

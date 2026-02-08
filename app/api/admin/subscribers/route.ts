@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
 
     // Fetch all subscribers
     const { data, error } = await supabase
-      .from('newsletter_subscribers')
+      .from('mailinglist_subscribers')
       .select('*')
       .order('created_at', { ascending: false });
 

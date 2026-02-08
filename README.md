@@ -1,14 +1,17 @@
-# Events Newsletter Platform
+# Events Mailing List Platform
 
-A complete, production-ready newsletter platform for managing event subscriptions with sophisticated admin features and proper unsubscribe logic.
+A complete, production-ready mailing list platform for managing event subscriptions with sophisticated admin features and proper unsubscribe logic.
 
 ![Status](https://img.shields.io/badge/status-production%20ready-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Vercel](https://img.shields.io/badge/deployed%20on-Vercel-black)
 
+> **🚀 Want to Deploy?** → **[START HERE](./START_HERE.md)** - Your quick start guide!  
+> **📚 Looking Around?** → [Documentation Index](./DOCUMENTATION_INDEX.md) for all guides
+
 ## Features at a Glance
 
-✅ **Beautiful Newsletter Signup**
+✅ **Beautiful Mailing List Signup**
 - Email subscription with validation
 - 6 event type selections
 - 8 topic selections
@@ -42,38 +45,48 @@ A complete, production-ready newsletter platform for managing event subscription
 
 ## Quick Links
 
-- **[Quick Start](./QUICKSTART.md)** - Get running in 5 minutes
-- **[Setup Guide](./SETUP.md)** - Detailed setup instructions
+### 🚀 Deployment (Start Here!)
+- **[Deployment Guide](./DEPLOYMENT_GUIDE.md)** - Complete step-by-step deployment (15 min)
+- **[Deployment Checklist](./DEPLOYMENT_CHECKLIST.md)** - Printable task list
+- **[Quick Deploy](./QUICK_DEPLOY.md)** - Fast reference for updates
+
+### 📖 Documentation
+- **[Documentation Index](./DOCUMENTATION_INDEX.md)** - Navigate all docs easily
 - **[Features](./FEATURES.md)** - Complete feature documentation
 - **[Architecture](./ARCHITECTURE.md)** - System design & data flow
-- **[Deployment](./DEPLOYMENT.md)** - Pre-flight checklist
+- **[Setup Guide](./SETUP.md)** - Detailed setup instructions
+- **[Quick Start](./QUICKSTART.md)** - Get running in 5 minutes
+
+### 🔄 Migration & Changes
+- **[Migration Guide](./MIGRATION_GUIDE.md)** - Newsletter → mailing list migration
+- **[Changes Summary](./CHANGES_SUMMARY.md)** - Complete change log
 
 ## What's Included
 
 ### Pages
-- **Homepage** (`/`) - Newsletter signup form
+- **Homepage** (`/`) - Mailing list signup form
 - **Suggestions** (`/suggest`) - Submit event types and topics
 - **Unsubscribe** (`/unsubscribe`) - Token-verified unsubscribe
 - **Admin** (`/admin`) - Subscriber management dashboard
 
 ### API Endpoints
-- **POST /api/newsletter** - Subscribe to newsletter
+- **POST /api/mailinglist** - Subscribe to mailing list
 - **POST /api/suggestions** - Submit suggestions
 - **POST /api/unsubscribe** - Unsubscribe with token
 - **GET /api/admin/subscribers** - Admin data access
 
 ### Database Tables
-- `newsletter_subscribers` - Subscriber data with tokens
+- `mailinglist_subscribers` - Subscriber data with tokens
 - `event_type_suggestions` - Event type suggestions
 - `topic_suggestions` - Topic suggestions
 
 ### Components
-- `NewsletterForm` - Signup form component
+- `MailingListForm` - Signup form component
 - `SuggestionForm` - Suggestion form component
 - `AdminDashboard` - Admin interface component
 
 ### Configuration
-- `lib/newsletter-config.ts` - Easy event types & topics management
+- `lib/mailinglist-config.ts` - Easy event types & topics management
 
 ## Technology Stack
 
@@ -86,26 +99,25 @@ A complete, production-ready newsletter platform for managing event subscription
 
 ## Getting Started
 
-### 1. Set Environment Variable
-```bash
-# In Vercel project settings → Environment Variables
-ADMIN_PASSWORD=your-secure-password
-```
+### Complete Deployment (First Time Users)
 
-### 2. Test Locally (Optional)
-```bash
-echo "ADMIN_PASSWORD=your-secure-password" >> .env.local
-npm run dev
-# Visit http://localhost:3000
-```
+📖 **Follow the [Step-by-Step Deployment Guide](./DEPLOYMENT_GUIDE.md)** - Complete walkthrough for deploying to production (10-15 minutes)
 
-### 3. Deploy
-Push to your connected repository or use Vercel Deploy button.
+### Quick Deploy (Experienced Users)
 
-### 4. Verify
-- Visit homepage and test signup
-- Visit `/admin` and login
-- Check all features work
+⚡ **Use the [Quick Deploy Reference](./QUICK_DEPLOY.md)** - Fast commands and reference
+
+### Quick Summary
+
+1. **Create Supabase project** → Run `scripts/setup-mailinglist.sql`
+2. **Push to GitHub** → Connect to Vercel
+3. **Set 3 environment variables** in Vercel:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `ADMIN_PASSWORD`
+4. **Deploy** → Test at your-app.vercel.app
+
+**Detailed instructions**: See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
 
 ## File Structure
 
@@ -126,7 +138,7 @@ Push to your connected repository or use Vercel Deploy button.
 │   │   └── page.tsx          # Admin dashboard
 │   │
 │   └── api/
-│       ├── newsletter/
+│       ├── mailinglist/
 │       │   └── route.ts      # Signup endpoint
 │       ├── suggestions/
 │       │   └── route.ts      # Suggestions endpoint
@@ -137,20 +149,20 @@ Push to your connected repository or use Vercel Deploy button.
 │               └── route.ts  # Admin endpoint
 │
 ├── components/
-│   ├── newsletter-form.tsx   # Signup form
+│   ├── mailinglist-form.tsx  # Signup form
 │   ├── suggestion-form.tsx   # Suggestion form
 │   ├── admin-dashboard.tsx   # Admin interface
 │   └── ui/                   # shadcn/ui components
 │
 ├── lib/
-│   ├── newsletter-config.ts  # Event types & topics
+│   ├── mailinglist-config.ts # Event types & topics
 │   └── utils.ts              # Utility functions
 │
 ├── public/                   # Static assets
 │
 ├── scripts/
-│   ├── setup-newsletter.sql  # Database setup
-│   └── add-features.sql      # Database additions
+│   ├── setup-mailinglist.sql # Database setup
+│   └── migrate-newsletter-to-mailinglist.sql # Migration script
 │
 └── docs/
     ├── README.md             # This file
@@ -165,7 +177,7 @@ Push to your connected repository or use Vercel Deploy button.
 
 ### Add a Subscriber
 ```bash
-curl -X POST https://yourdomain.com/api/newsletter \
+curl -X POST https://yourdomain.com/api/mailinglist \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
@@ -190,7 +202,7 @@ curl -X POST https://yourdomain.com/api/unsubscribe \
 ## Customization
 
 ### Change Event Types & Topics
-Edit `lib/newsletter-config.ts`:
+Edit `lib/mailinglist-config.ts`:
 ```typescript
 export const EVENT_TYPES = [
   'Your Event Type 1',
@@ -207,7 +219,7 @@ export const TOPICS = [
 
 ### Change Colors & Styling
 Edit Tailwind classes in component files:
-- `components/newsletter-form.tsx`
+- `components/mailinglist-form.tsx`
 - `components/suggestion-form.tsx`
 - `components/admin-dashboard.tsx`
 - `app/page.tsx`
@@ -221,9 +233,9 @@ Extend `AdminDashboard` component:
 
 ## Database Schema
 
-### newsletter_subscribers
+### mailinglist_subscribers
 ```sql
-CREATE TABLE newsletter_subscribers (
+CREATE TABLE mailinglist_subscribers (
   id BIGSERIAL PRIMARY KEY,
   email VARCHAR(255) NOT NULL UNIQUE,
   event_types TEXT[] DEFAULT '{}',
@@ -236,8 +248,8 @@ CREATE TABLE newsletter_subscribers (
 ```
 
 ### Indexes
-- `idx_newsletter_email` on email column
-- `idx_newsletter_token` on unsubscribe_token column
+- `idx_mailinglist_email` on email column
+- `idx_mailinglist_token` on unsubscribe_token column
 
 ## Security Features
 
@@ -288,7 +300,7 @@ CREATE TABLE newsletter_subscribers (
 ### Success (201/200)
 ```json
 {
-  "message": "Successfully subscribed to newsletter!",
+  "message": "Successfully subscribed to mailing list!",
   "data": { ... }
 }
 ```
@@ -351,7 +363,7 @@ See **SETUP.md** and **DEPLOYMENT.md** for more troubleshooting.
 
 - Email confirmation flow
 - Subscriber preference management
-- Newsletter scheduling
+- Email scheduling
 - Email templates
 - Campaign analytics
 - Segment-based campaigns
@@ -382,17 +394,17 @@ MIT License - see LICENSE file for details
 
 ## Next Steps
 
-1. **Read**: Start with [QUICKSTART.md](./QUICKSTART.md)
-2. **Setup**: Follow [SETUP.md](./SETUP.md)
-3. **Deploy**: Use [DEPLOYMENT.md](./DEPLOYMENT.md)
-4. **Customize**: Edit `lib/newsletter-config.ts`
-5. **Monitor**: Track subscriber metrics
+1. **Deploy**: Follow [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) (first time)
+2. **Quick Reference**: Use [QUICK_DEPLOY.md](./QUICK_DEPLOY.md) (updates)
+3. **Customize**: Edit `lib/mailinglist-config.ts`
+4. **Learn**: Read [FEATURES.md](./FEATURES.md) and [ARCHITECTURE.md](./ARCHITECTURE.md)
+5. **Monitor**: Track subscriber metrics in admin dashboard
 
 **Questions?** Check the comprehensive documentation files included.
 
 ---
 
-Made with ❤️ for event organizers and newsletter managers.
+Made with ❤️ for event organizers and mailing list managers.
 
 **Current Version**: 1.0.0
 **Last Updated**: February 2026

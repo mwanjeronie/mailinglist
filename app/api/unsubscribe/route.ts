@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
     // Find subscriber by token
     const { data: subscriber, error: selectError } = await supabase
-      .from('newsletter_subscribers')
+      .from('mailinglist_subscribers')
       .select('id, email')
       .eq('unsubscribe_token', token)
       .single();
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
 
     // Mark as inactive instead of deleting (soft delete)
     const { error: updateError } = await supabase
-      .from('newsletter_subscribers')
+      .from('mailinglist_subscribers')
       .update({ is_active: false })
       .eq('id', subscriber.id);
 

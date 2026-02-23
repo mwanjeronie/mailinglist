@@ -187,16 +187,16 @@ export function MailingListForm() {
             )}
           </button>
 
-          {/* Suggestion Link */}
+          {/* Event Submission Link */}
           <div className="text-center pt-4 border-t border-gray-200">
             <p className="text-sm text-gray-600 mb-2">
-              Missing an event type or topic?
+              Have an event to share with our community?
             </p>
             <a
               href="/suggest"
               className="text-sm font-medium text-gray-900 hover:text-gray-700 underline"
             >
-              Suggest one →
+              Submit your event →
             </a>
           </div>
         </form>

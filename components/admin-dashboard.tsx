@@ -16,7 +16,11 @@ interface Subscriber {
 const allEventTypes = EVENT_TYPES;
 const allTopics = TOPICS;
 
-export function AdminDashboard() {
+interface AdminDashboardProps {
+  password: string;
+}
+
+export function AdminDashboard({ password }: AdminDashboardProps) {
   const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -27,14 +31,14 @@ export function AdminDashboard() {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('active');
 
-  useEffect(() => {
-    fetchSubscribers();
-  }, []);
-
   const fetchSubscribers = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('/api/admin/subscribers');
+      const response = await fetch('/api/admin/subscribers', {
+        headers: {
+          'Authorization': `Bearer ${password}`,
+        },
+      });
 
       if (!response.ok) {
         throw new Error('Failed to fetch subscribers');
@@ -50,6 +54,13 @@ export function AdminDashboard() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (password) {
+      fetchSubscribers();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [password]);
 
   const filteredSubscribers = subscribers.filter((subscriber) => {
     // Status filter

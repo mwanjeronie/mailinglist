@@ -28,10 +28,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate that at least one event type or topic is selected
-    if ((!event_types || event_types.length === 0) && (!topics || topics.length === 0)) {
+    // Validate that at least one event type is selected
+    if (!event_types || event_types.length === 0) {
       return NextResponse.json(
-        { error: 'Please select at least one event type or topic' },
+        { error: 'Please select at least one event type' },
+        { status: 400 }
+      );
+    }
+
+    // Validate that at least one topic is selected
+    if (!topics || topics.length === 0) {
+      return NextResponse.json(
+        { error: 'Please select at least one topic' },
         { status: 400 }
       );
     }

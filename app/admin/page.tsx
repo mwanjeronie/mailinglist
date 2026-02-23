@@ -9,6 +9,7 @@ import { AdminDashboard } from '@/components/admin-dashboard';
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
+  const [savedPassword, setSavedPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -35,6 +36,7 @@ export default function AdminPage() {
       }
 
       setIsAuthenticated(true);
+      setSavedPassword(password);
       setPassword('');
     } catch (err) {
       setError('Failed to authenticate. Please try again.');
@@ -47,6 +49,7 @@ export default function AdminPage() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setPassword('');
+    setSavedPassword('');
     setError('');
   };
 
@@ -134,7 +137,7 @@ export default function AdminPage() {
         </div>
 
         {/* Dashboard */}
-        <AdminDashboard />
+        <AdminDashboard password={savedPassword} />
       </div>
     </main>
   );

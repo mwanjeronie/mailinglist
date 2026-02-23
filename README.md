@@ -6,8 +6,11 @@ A complete, production-ready mailing list platform for managing event subscripti
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Vercel](https://img.shields.io/badge/deployed%20on-Vercel-black)
 
+**🌐 Live:** [maillist.winjo.xyz](https://maillist.winjo.xyz) | **🔗 Vercel:** [mailinglist-amber.vercel.app](https://mailinglist-amber.vercel.app)
+
 > **🚀 Want to Deploy?** → **[START HERE](./START_HERE.md)** - Your quick start guide!  
-> **📚 Looking Around?** → [Documentation Index](./DOCUMENTATION_INDEX.md) for all guides
+> **📚 Looking Around?** → [Documentation Index](./DOCUMENTATION_INDEX.md) for all guides  
+> **🌐 Custom Domain?** → [Custom Domain Setup Guide](./CUSTOM_DOMAIN_SETUP.md)
 
 ## Features at a Glance
 

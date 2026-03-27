@@ -1,25 +1,20 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata } from 'next';
+import { Geist } from 'next/font/google';
+import './globals.css';
 
-import './globals.css'
-
-const _geist = Geist({ subsets: ['latin'] })
-const _geistMono = Geist_Mono({ subsets: ['latin'] })
+const geist = Geist({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-}
+  title: 'Mwanje Ronnie — Events Newsletter',
+  description:
+    'Stay updated on tech events in Kampala and beyond. Subscribe to the events newsletter on Luma.',
+  robots: { index: true, follow: true },
+};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className={geist.className}>
+      <body className="antialiased">{children}</body>
     </html>
-  )
+  );
 }
